@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Author:
+#	Alfredo Hernández <aldomann.designs@gmail.com>
+
+# Install required packages and libraries
+sudo pacman -S gtk-engine-murrine pstoedit python2-lxml --needed
+
+# Install TexText
+wget https://bitbucket.org/pitgarbe/textext/downloads/TexText-Linux-0.7.tgz -P /tmp
+tar xvfz /tmp/TexText-Linux-0.7.tgz
+python /tmp/textext-0.7-linux/setup.py
+
+# Use custom TeX packages
+ext_dir=$HOME/.config/inkscape/extensions
+
+mv $ext_dir/default_packages.tex $ext_dir/default_packages_old.tex
+cp default_packages.tex $ext_dir/default_packages.tex
